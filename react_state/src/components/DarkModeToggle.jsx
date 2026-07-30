@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { useSettingsStore } from '../store/settingsStore.js'
 
@@ -9,10 +8,6 @@ function DarkModeToggle() {
       updateSettings: state.updateSettings,
     })),
   )
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', darkMode)
-  }, [darkMode])
 
   return (
     <button

@@ -6,19 +6,13 @@ import EditTodoForm from './EditTodoForm.jsx'
 function TodoItem({ todo }) {
   const [isEditing, setIsEditing] = useState(false)
   const toggleTodo = useTodoStore((state) => state.toggleTodo)
-  const editTodo = useTodoStore((state) => state.editTodo)
-
-  const saveEdit = (text) => {
-    editTodo(todo.id, text)
-    setIsEditing(false)
-  }
 
   if (isEditing) {
     return (
       <li className="todo-item">
         <EditTodoForm
-          todo={todo}
-          onSave={saveEdit}
+          id={todo.id}
+          initialText={todo.text}
           onCancel={() => setIsEditing(false)}
         />
       </li>

@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTodoStore } from '../store/todoStore.js'
 
-function EditTodoForm({ todo, onSave, onCancel }) {
-  const [text, setText] = useState(todo.text)
+function EditTodoForm({ id, initialText, onCancel }) {
+  const [text, setText] = useState(initialText)
+  const editTodo = useTodoStore((state) => state.editTodo)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -11,16 +13,17 @@ function EditTodoForm({ todo, onSave, onCancel }) {
       return
     }
 
-    onSave(trimmedText)
+    editTodo(id, trimmedText)
+    onCancel()
   }
 
   return (
     <form className="edit-form" onSubmit={handleSubmit}>
-      <label className="sr-only" htmlFor={`edit-${todo.id}`}>
+      <label className="sr-only" htmlFor={`edit-${id}`}>
         Edit todo
       </label>
       <input
-        id={`edit-${todo.id}`}
+        id={`edit-${id}`}
         value={text}
         onChange={(event) => setText(event.target.value)}
       />

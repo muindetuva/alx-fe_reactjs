@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import AddTodoForm from './components/AddTodoForm.jsx'
 import DarkModeToggle from './components/DarkModeToggle.jsx'
 import FilterButtons from './components/FilterButtons.jsx'
@@ -9,8 +10,13 @@ import { useTodoStore } from './store/todoStore.js'
 function App() {
   const todos = useTodoStore((state) => state.todos)
   const filter = useTodoStore((state) => state.filter)
+  const darkMode = useSettingsStore((state) => state.darkMode)
   const fontSize = useSettingsStore((state) => state.fontSize)
   const fontFamily = useSettingsStore((state) => state.fontFamily)
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode)
+  }, [darkMode])
 
   const visibleTodos = todos.filter((todo) => {
     if (filter === 'active') {

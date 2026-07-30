@@ -35,8 +35,11 @@ export const createTodosSlice = (set, get) => ({
     })),
 
   clearCompleted: () => {
+    const currentFilter = get().filter
     const completedTodos = get().todos.filter((todo) => todo.completed)
-    console.log(`Clearing ${completedTodos.length} completed todos`)
+    console.log(
+      `Clearing ${completedTodos.length} completed todos while ${currentFilter} is active`,
+    )
     set((state) => ({
       todos: state.todos.filter((todo) => !todo.completed),
     }))

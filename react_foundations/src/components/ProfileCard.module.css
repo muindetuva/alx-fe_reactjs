@@ -1,0 +1,35 @@
+.card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #b8cad8;
+  border-radius: 0.9rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 10px 24px rgb(18 48 74 / 10%);
+  transition: border-color 160ms ease, box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.card:hover {
+  border-color: #146356;
+  box-shadow: 0 16px 32px rgb(20 99 86 / 20%);
+  transform: translateY(-3px);
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+.title {
+  margin: 0 0 0.25rem;
+  color: #15324b;
+}
+
+.text {
+  margin: 0;
+  color: #49677f;
+}

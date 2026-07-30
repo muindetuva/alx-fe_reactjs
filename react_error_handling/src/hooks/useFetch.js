@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { parseUser } from '../schemas/userSchema.js'
 
-export default function useFetch(url, validate = (value) => value) {
+export default function useFetch(url) {
   const [state, setState] = useState({
     status: 'idle',
     data: null,
@@ -26,7 +27,7 @@ export default function useFetch(url, validate = (value) => value) {
         }
 
         const rawData = await response.json()
-        const parsedData = validate(rawData)
+        const parsedData = parseUser(rawData)
 
         if (parsedData === null) {
           throw new Error('Received malformed user data.')
@@ -45,7 +46,7 @@ export default function useFetch(url, validate = (value) => value) {
     return () => {
       controller.abort()
     }
-  }, [url, validate])
+  }, [url])
 
   return state
 }

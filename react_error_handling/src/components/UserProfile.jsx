@@ -1,8 +1,7 @@
 import useFetch from '../hooks/useFetch.js'
-import { parseUser } from '../schemas/userSchema.js'
 
 function UserProfile() {
-  const { status, data, error } = useFetch('/api/user', parseUser)
+  const { status, data, error } = useFetch('/api/user')
 
   if (status === 'idle') {
     return <p>Profile request is idle.</p>

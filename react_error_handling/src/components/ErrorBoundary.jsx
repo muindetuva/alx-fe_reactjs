@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { reportError } from '../utils/errorReporter.js'
+import { reportToMonitoring } from '../utils/errorReporter.js'
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    reportError(error, { componentStack: errorInfo.componentStack })
+    reportToMonitoring(error, { componentStack: errorInfo.componentStack })
   }
 
   handleReset() {

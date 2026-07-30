@@ -1,6 +1,3 @@
-import LiveSearch from '../components/LiveSearch.jsx'
-import ProfileCard from '../components/ProfileCard.jsx'
-import ProfileCardModule from '../components/ProfileCardModule.jsx'
 import ThemeToggleButton from '../components/ThemeToggleButton.jsx'
 
 function DashboardPreferences() {
@@ -21,7 +18,7 @@ function LearningDashboard() {
   )
 }
 
-function HomePage() {
+function HomePage({ profileCards, liveSearch }) {
   return (
     <>
       <section className="content-panel hero-panel">
@@ -35,15 +32,12 @@ function HomePage() {
 
       <section className="content-panel" aria-labelledby="profiles-heading">
         <h2 id="profiles-heading">Styling comparison</h2>
-        <div className="profile-grid">
-          <ProfileCard />
-          <ProfileCardModule />
-        </div>
+        <div className="profile-grid">{profileCards}</div>
       </section>
 
       <section className="content-panel" aria-labelledby="search-heading">
         <h2 id="search-heading">Live search</h2>
-        <LiveSearch />
+        {liveSearch}
       </section>
 
       <LearningDashboard />

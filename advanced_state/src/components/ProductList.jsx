@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProducts } from '../features/products/productsSlice.js'
+import { fetchProducts } from '../store/productsSlice.js'
 import ProductCard from './ProductCard.jsx'
 
 function ProductList() {

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   clearCart,
   removeItem,
-} from '../features/cart/cartSlice.js'
+} from '../store/cartSlice.js'
 
 function CartSummary() {
   const items = useSelector((state) => state.cart)

@@ -1,9 +1,7 @@
-import { Provider } from 'react-redux'
 import CartSummary from './components/CartSummary.jsx'
 import ProductList from './components/ProductList.jsx'
 import ThemeToggleButton from './components/ThemeToggleButton.jsx'
 import { ThemeProvider, useTheme } from './context/ThemeContext.jsx'
-import { store } from './store/store.js'
 
 function MarketCart() {
   const { theme } = useTheme()
@@ -31,9 +29,7 @@ function MarketCart() {
 function App() {
   return (
     <ThemeProvider>
-      <Provider store={store}>
-        <MarketCart />
-      </Provider>
+      <MarketCart />
     </ThemeProvider>
   )
 }

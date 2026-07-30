@@ -25,12 +25,14 @@ const products = [
   },
 ]
 
-export function getProducts() {
+export function fetchProductsFromApi() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products)
     }, 700)
   })
 }
+
+export const getProducts = fetchProductsFromApi
 
 export default products

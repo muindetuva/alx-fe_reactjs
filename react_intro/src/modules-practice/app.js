@@ -5,6 +5,6 @@ void area
 void PI
 
 console.log(
-  'Circumference of a circle with radius 5: ' + circumference(5),
+  'The circumference of a circle with radius 5 is ' + circumference(5),
 )
-console.log(greet('React learner'))
+console.log(greet('React learner!'))
